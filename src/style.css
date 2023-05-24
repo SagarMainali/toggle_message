@@ -1,0 +1,13 @@
+button {
+     padding: 6px 10px;
+     background-color: rgb(25, 25, 163);
+     color: white;
+     border-radius: 6px;
+}
+
+span {
+     padding: 6px 10px;
+     background-color: gray;
+     border-radius: 6px;
+     color: white;
+}
