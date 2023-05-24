@@ -1,13 +1,23 @@
+.app {
+     height: 100vh;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     gap: 20px;
+}
+
 button {
-     padding: 6px 10px;
+     padding: 8px 12px;
      background-color: rgb(25, 25, 163);
      color: white;
      border-radius: 6px;
+     border: 0;
 }
 
 span {
-     padding: 6px 10px;
-     background-color: gray;
+     padding: 8px 12px;
+     background-color: rgb(78, 76, 76);
      border-radius: 6px;
      color: white;
 }
