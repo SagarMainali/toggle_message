@@ -9,24 +9,11 @@ function App() {
           const { name } = e.target
           const string = name === 'add' ? 'Added to cart' : 'Removed from cart'
           setMessages(prevMessages => ([...prevMessages, string]))
-          // setTimeout(() => {
-          //      // can't use array.shift() to remove the first element because it modifies the state directly
-          //      setMessages(prevMessages => prevMessages.slice(1))
-          // }, 1000)
+          setTimeout(() => {
+               // can't use array.shift() to remove the first element because it modifies the state directly
+               setMessages(prevMessages => prevMessages.slice(1))
+          }, 2000)
      }
-
-     useEffect(() => {
-          // this condition prevents unnecessary renders
-          if (messages.length > 0) {
-               const timer = setTimeout(() => {
-                    // can't use array.shift() to remove the first element because it modifies the state directly
-                    setMessages(prevMessages => prevMessages.slice(1))
-               }, 1000)
-               return () => {
-                    clearTimeout(timer)
-               }
-          }
-     }, [messages])
 
      return (
           <div className='app'>
