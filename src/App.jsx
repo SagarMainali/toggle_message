@@ -32,6 +32,7 @@ import React, { useState, useEffect } from 'react'
 import './style.css'
 
 function App() {
+     console.log('first')
 
      const [message, setMessage] = useState('')
 
@@ -42,14 +43,14 @@ function App() {
      }
 
      useEffect(() => {
+          // console.log(message.length)
           if (message.length > 0) {
-               console.log('first')
                const timer = setTimeout(() => {
                     setMessage('')
                }, 1000)
                return () => clearTimeout(timer)
           }
-     }, [message])
+     })
 
      return (
           <div className='app'>
