@@ -28,14 +28,12 @@
 
 // export default App
 
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import './style.css'
 
 function App() {
 
      const [message, setMessage] = useState('')
-     const messageRef = useRef('');
-
 
      function showMessage(e) {
           const { name } = e.target
@@ -43,26 +41,15 @@ function App() {
           setMessage(string)
      }
 
-     function showMessage(e) {
-          const { name } = e.target;
-          const string = name === 'add' ? 'Added to cart' : 'Removed from cart';
-          setMessage(string);
-        }
-      
-        useEffect(() => {
-          messageRef.current = message;
-      
+     useEffect(() => {
           if (message.length > 0) {
-            console.log('first');
-            const timer = setTimeout(() => {
-              if (messageRef.current === message) {
-                setMessage('');
-              }
-            }, 1000);
-      
-            return () => clearTimeout(timer);
+               console.log('first')
+               const timer = setTimeout(() => {
+                    setMessage('')
+               }, 1000)
+               return () => clearTimeout(timer)
           }
-        });
+     }, [message])
 
      return (
           <div className='app'>
