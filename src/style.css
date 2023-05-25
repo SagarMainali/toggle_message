@@ -11,13 +11,19 @@ button {
      border: 0;
 }
 
+.messages {
+     position: fixed;
+     bottom: 10px;
+     left: 50%;
+     transform: translate(-50%);
+     display: flex;
+     flex-direction: column-reverse;
+     gap: 10px;
+}
+
 span {
      padding: 8px 12px;
      background-color: rgb(78, 76, 76);
      border-radius: 6px;
      color: white;
-     position: fixed;
-     bottom: 10px;
-     left: 50%;
-     transform: translate(-50%);
 }
