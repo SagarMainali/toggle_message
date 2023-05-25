@@ -32,7 +32,8 @@ import React, { useState, useEffect } from 'react'
 import './style.css'
 
 function App() {
-     console.log('first')
+
+     console.log('app rendered')
 
      const [message, setMessage] = useState('')
 
@@ -43,14 +44,20 @@ function App() {
      }
 
      useEffect(() => {
-          // console.log(message.length)
+          console.log('inside useEffect')
           if (message.length > 0) {
                const timer = setTimeout(() => {
                     setMessage('')
                }, 1000)
+               // the cleanup function only runs when this componenet unmounts. and the component unmounts when the state 'message' is changed
                return () => clearTimeout(timer)
           }
      })
+     //the problem i encountered is that when not assigning any dependency, the useeffect is supposed to run on every render however it runs only
+     //once like acting like [], i thought that since the string was not changed while updating the state the app didn't rendered at all causing 
+     //the useeffect to not run but app renders at least 2 times which i verified with the console.log('app rendered') at top.
+     //example - i clicked the button once - app rendered and then useeffect ran, i again clicked the button before the timer - app rendered but the
+     //useeffect didn't rum
 
      return (
           <div className='app'>
