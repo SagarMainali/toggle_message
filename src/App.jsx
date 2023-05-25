@@ -7,12 +7,14 @@ function App() {
           setMessages(prevMessages => ([...prevMessages, "Added to cart"]))
      }
      useEffect(() => {
-          const timer = setTimeout(() => {
-               setMessages(prevMessages => prevMessages.slice(1))
-          }, 1000)
-
-          return () => {
-               clearTimeout(timer)
+          if (messages.length > 0) {
+               console.log('first')
+               const timer = setTimeout(() => {
+                    setMessages(prevMessages => prevMessages.slice(1))
+               }, 1000)
+               return () => {
+                    clearTimeout(timer)
+               }
           }
      }, [messages])
      return (
